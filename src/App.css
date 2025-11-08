@@ -1,42 +1,310 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* src/App.css (Versión Final Responsiva + Estilos) */
+
+/* --- Título Principal (h1) --- */
+h1 {
+  font-size: 2.8rem; /* Más grande */
+  font-weight: 800;
   text-align: center;
+  margin-bottom: 20px;
+  
+  /* !! NUEVO: Efecto Gradiente !! */
+  background: linear-gradient(90deg, #007bff, #004aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* --- Títulos de Módulo (h2) --- */
+h2 {
+  font-size: 1.8rem;
+  padding-bottom: 10px;
+  
+  /* !! NUEVO: Acento de borde izquierdo !! */
+  border-left: 5px solid #007bff;
+  padding-left: 15px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+
+/* --- Contenedor Principal (de App.tsx) --- */
+div[style*='padding: 20px'] {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Contenedor de cada Módulo (Mesas, Clientes, etc.) --- */
+div[style*='display: flex'] {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+  /* !! NUEVO: Transición para el hover !! */
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+/* !! NUEVO: Efecto Hover para "elevar" la tarjeta !! */
+div[style*='display: flex']:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* --- Estilos de Formulario --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='date'],
+input[type='time'],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; 
+  /* !! NUEVO: Transición para el input !! */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* !! NUEVO: Efecto de "foco" en los inputs !! */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
+}
+
+/* --- Estilos de Botones --- */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+button[type='submit'] {
+  background-color: #007bff;
+  color: white;
+}
+button[typeM='submit']:hover {
+  background-color: #0056b3;
+}
+
+button[type='button'] {
+  background-color: #6c757d;
+  color: white;
+}
+button[type='button']:hover {
+  background-color: #5a6268;
+}
+
+/* --- Estilos de Tabla --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 700;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td:has(button) {
+  display: flex;
+  gap: 8px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+td:has(button) button {
+  padding: 5px 8px;
+  font-size: 0.85rem;
+}
+
+/* --- Clases para botones de la tabla --- */
+.btn-edit {
+  background-color: #ffc107;
+  color: #333;
+}
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-delete:hover {
+  background-color: #c82333;
+}
+.btn-cancel {
+  background-color: #ff9800;
+  color: white;
+}
+.btn-cancel:hover {
+  background-color: #f57c00;
+}
+
+/* --- Clase para el mensaje de Error --- */
+.error-message {
+  color: #dc3545;
+  font-weight: 600;
+  margin-top: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* --- Estilos del Menú de Navegación (Navbar) --- */
+.navbar {
+  background-color: #ffffff;
+  padding: 15px 30px;
+  display: flex;
+  gap: 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.nav-link.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+/* --- Ajustes para Iconos --- */
+.nav-link svg {
+  font-size: 1.1rem;
+}
+
+button svg {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/*
+========================================
+!! SECCIÓN RESPONSIVA !!
+========================================
+*/
+@media (max-width: 1000px) {
+  div[style*='display: flex'] {
+    flex-direction: column;
+    gap: 30px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.clickable-input-wrapper {
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  td:has(button) {
+    flex-direction: column;
+  }
+  
+  div[style*='padding: 20px'] {
+    padding: 10px;
+  }
+  
+  div[style*='display: flex'] {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
 }
 
-.card {
-  padding: 2em;
+.loader {
+  border: 5px solid #f3f3f3; /* Gris claro */
+  border-top: 5px solid #007bff; /* Azul */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- Estilo para el Estado Vacío --- */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  color: #777;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #bbb;
 }
