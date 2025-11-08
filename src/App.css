@@ -1,14 +1,14 @@
-/* src/App.css (Versión Final Responsiva + Estilos) */
+/* src/App.css (Versión Final Responsiva + Alegre) */
 
 /* --- Título Principal (h1) --- */
 h1 {
-  font-size: 2.8rem; /* Más grande */
+  font-size: 2.8rem;
   font-weight: 800;
   text-align: center;
   margin-bottom: 20px;
   
-  /* !! NUEVO: Efecto Gradiente !! */
-  background: linear-gradient(90deg, #007bff, #004aaa);
+  /* !! NUEVO: Gradiente Turquesa/Verde !! */
+  background: linear-gradient(90deg, #009688, #4db6ac); /* Turquesa */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -18,8 +18,8 @@ h2 {
   font-size: 1.8rem;
   padding-bottom: 10px;
   
-  /* !! NUEVO: Acento de borde izquierdo !! */
-  border-left: 5px solid #007bff;
+  /* !! NUEVO: Acento de borde Turquesa !! */
+  border-left: 5px solid #009688;
   padding-left: 15px;
 }
 
@@ -32,18 +32,16 @@ div[style*='padding: 20px'] {
 
 /* --- Contenedor de cada Módulo (Mesas, Clientes, etc.) --- */
 div[style*='display: flex'] {
-  background-color: #ffffff;
+  background-color: #ffffff; /* Tarjetas blancas */
   padding: 24px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave */
   
-  /* !! NUEVO: Transición para el hover !! */
   transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-/* !! NUEVO: Efecto Hover para "elevar" la tarjeta !! */
 div[style*='display: flex']:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px); /* Efecto de elevarse */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
 }
 
@@ -63,6 +61,7 @@ form label {
   margin-bottom: 5px;
   font-weight: 600;
   font-size: 0.9rem;
+  color: #555;
 }
 
 input[type='text'],
@@ -76,16 +75,17 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box; 
-  /* !! NUEVO: Transición para el input !! */
+  background-color: #fff;
+  color: #333;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* !! NUEVO: Efecto de "foco" en los inputs !! */
 input:focus,
 select:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
+  /* !! NUEVO: Foco Turquesa !! */
+  border-color: #009688;
+  box-shadow: 0 0 0 3px rgba(0,150,136,0.2);
 }
 
 /* --- Estilos de Botones --- */
@@ -102,12 +102,13 @@ button:hover {
   transform: scale(1.02);
 }
 
+/* !! NUEVO: Botón principal Turquesa !! */
 button[type='submit'] {
-  background-color: #007bff;
+  background-color: #009688;
   color: white;
 }
-button[typeM='submit']:hover {
-  background-color: #0056b3;
+button[type='submit']:hover {
+  background-color: #00796B;
 }
 
 button[type='button'] {
@@ -134,10 +135,19 @@ td {
 th {
   background-color: #f8f9fa;
   font-weight: 700;
+  /* !! NUEVO: Encabezados Turquesa !! */
+  color: #009688;
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
 tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+/* !! NUEVO: Efecto hover en filas de tabla !! */
+tr:hover {
+  background-color: #e6f4f1;
 }
 
 td:has(button) {
@@ -153,7 +163,7 @@ td:has(button) button {
 
 /* --- Clases para botones de la tabla --- */
 .btn-edit {
-  background-color: #ffc107;
+  background-color: #ffc107; /* Amarillo se mantiene */
   color: #333;
 }
 .btn-edit:hover {
@@ -161,18 +171,20 @@ td:has(button) button {
 }
 
 .btn-delete {
-  background-color: #dc3545;
+  background-color: #dc3545; /* Rojo se mantiene */
   color: white;
 }
 .btn-delete:hover {
   background-color: #c82333;
 }
+
+/* !! NUEVO: Botón Cancelar Coral/Naranja !! */
 .btn-cancel {
-  background-color: #ff9800;
+  background-color: #FF7F50; /* Coral */
   color: white;
 }
 .btn-cancel:hover {
-  background-color: #f57c00;
+  background-color: #E66A40;
 }
 
 /* --- Clase para el mensaje de Error --- */
@@ -210,14 +222,15 @@ td:has(button) button {
   gap: 8px;
 }
 
+/* !! NUEVO: Hover/Active Turquesa !! */
 .nav-link:hover {
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+  color: #009688;
+  border-bottom: 2px solid #009688;
 }
 
 .nav-link.active {
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+  color: #009688;
+  border-bottom: 2px solid #009688;
 }
 
 /* --- Ajustes para Iconos --- */
@@ -230,9 +243,14 @@ button svg {
   vertical-align: middle;
 }
 
+/* --- Mejora UX para inputs de fecha/hora --- */
+.clickable-input-wrapper {
+  cursor: pointer;
+}
+
 /*
 ========================================
-!! SECCIÓN RESPONSIVA !!
+!! SECCIÓN RESPONSIVA (Se mantiene igual) !!
 ========================================
 */
 @media (max-width: 1000px) {
@@ -240,10 +258,6 @@ button svg {
     flex-direction: column;
     gap: 30px;
   }
-}
-
-.clickable-input-wrapper {
-  cursor: pointer;
 }
 
 @media (max-width: 700px) {
@@ -273,6 +287,7 @@ button svg {
   }
 }
 
+/* --- Estilo para el Spinner de Carga --- */
 .loader-container {
   display: flex;
   justify-content: center;
@@ -281,8 +296,9 @@ button svg {
 }
 
 .loader {
-  border: 5px solid #f3f3f3; /* Gris claro */
-  border-top: 5px solid #007bff; /* Azul */
+  border: 5px solid #f3f3f3;
+  /* !! NUEVO: Spinner Turquesa !! */
+  border-top: 5px solid #009688;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -306,5 +322,6 @@ button svg {
 .empty-state-icon {
   font-size: 3rem;
   margin-bottom: 10px;
-  color: #bbb;
+  /* !! NUEVO: Icono Turquesa !! */
+  color: #009688;
 }

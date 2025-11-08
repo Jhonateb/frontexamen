@@ -1,4 +1,4 @@
-/* src/index.css (Versión 3) */
+/* src/index.css (Versión Alegre) */
 
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -8,8 +8,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #f4f4f9; /* Fondo gris claro */
-  color: #333;
+  /* !! NUEVO: Fondo gris claro y limpio !! */
+  background-color: #f4f7fa; /* Gris muy claro, casi blanco */
+  color: #333; /* Texto oscuro principal */
 }
 
 body {
@@ -19,11 +20,7 @@ body {
   min-width: 360px;
 }
 
-/* !! CAMBIO AQUÍ !!
-  Quitamos el borde de h1 y h2. 
-  Los estilizaremos en App.css para más control.
-*/
 h1,
 h2 {
-  color: #2c3e50;
+  color: #2c3e50; /* Un azul/gris oscuro para los títulos */
 }
