@@ -8,7 +8,7 @@ import {
   type Mesa,
 } from '../interfaces/models';
 // 1. Importa los iconos
-import { FaSave, FaTimes, FaCalendarAlt } from 'react-icons/fa';
+import { FaSave, FaTimes, FaCalendarAlt, FaCheck } from 'react-icons/fa';
 
 const API_URL = 'http://localhost:3000';
 
@@ -133,6 +133,17 @@ export default function GestionReservas() {
       setError(`Error al cancelar: ${err.response?.data?.message}`);
     }
   };
+
+  const handleCompletar = async (id: number) => {
+    if (!window.confirm('¿Marcar esta reserva como completada y dar puntos al cliente?')) return;
+    
+    try {
+      await axios.patch(`${API_URL}/reserva/${id}/completar`);
+      fetchDatosIniciales(); // Recarga la lista
+    } catch (err: any) {
+      setError(`Error al completar la reserva: ${err.response?.data?.message}`);
+    }
+  };
   
   const handleDateWrapperClick = () => {
     dateInputRef.current?.showPicker();
@@ -149,8 +160,9 @@ export default function GestionReservas() {
     }
     
     // Filtra las canceladas ANTES de contar
-    const reservasActivas = reservas.filter(r => r.estado !== 'cancelada');
-
+    const reservasActivas = reservas.filter(
+      r => r.estado !== 'cancelada' && r.estado !== 'completada'
+    );
     if (reservasActivas.length === 0) {
       return <EmptyState />;
     }
@@ -176,6 +188,11 @@ export default function GestionReservas() {
               <td>{reserva.numero_personas}</td>
               <td>{reserva.estado}</td>
               <td>
+                {reserva.estado === 'pendiente' && (
+                  <button onClick={() => handleCompletar(reserva.id)} className="btn-complete">
+                    <FaCheck /> Completar
+                  </button>
+                )}
                 <button onClick={() => handleCancelar(reserva.id)} className="btn-cancel">
                   <FaTimes /> Cancelar
                 </button>
@@ -256,7 +273,6 @@ export default function GestionReservas() {
 
       <div style={{ flex: 2 }}>
         <h2>Reservas Activas</h2>
-        {/* 9. Llama a la nueva función de renderizado */}
         {renderTableContent()}
       </div>
     </div>

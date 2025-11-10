@@ -1,8 +1,7 @@
-// src/components/Navbar.tsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// 1. Importa los iconos que usaremos
-import { FaCalendarAlt, FaUsers, FaTable } from 'react-icons/fa';
+// 1. Importa los 4 iconos
+import { FaCalendarAlt, FaUsers, FaTable, FaChartBar } from 'react-icons/fa';
 
 export default function Navbar() {
   return (
@@ -11,7 +10,7 @@ export default function Navbar() {
         to="/"
         className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
       >
-        <FaCalendarAlt /> {/* 2. Añade el icono */}
+        <FaCalendarAlt />
         Reservas
       </NavLink>
 
@@ -19,7 +18,7 @@ export default function Navbar() {
         to="/mesas"
         className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
       >
-        <FaTable /> {/* 2. Añade el icono */}
+        <FaTable />
         Gestión de Mesas
       </NavLink>
 
@@ -27,8 +26,17 @@ export default function Navbar() {
         to="/clientes"
         className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
       >
-        <FaUsers /> {/* 2. Añade el icono */}
+        <FaUsers />
         Gestión de Clientes
+      </NavLink>
+
+      {/* 2. Este es el nuevo enlace a Reportes */}
+      <NavLink
+        to="/reportes"
+        className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+      >
+        <FaChartBar />
+        Reportes
       </NavLink>
     </nav>
   );

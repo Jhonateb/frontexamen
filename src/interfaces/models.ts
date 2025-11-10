@@ -12,6 +12,7 @@ export interface Cliente {
   nombre: string;
   email: string;
   telefono: string;
+  puntos: number;
 }
 
 // --- AÑADE ESTO ---
@@ -22,7 +23,7 @@ export interface Reserva {
   fecha: string;
   hora: string;
   numero_personas: number;
-  estado: 'pendiente' | 'confirmada' | 'cancelada';
+  estado: 'pendiente' | 'confirmada' | 'cancelada' | 'completada';
   cliente: Cliente; // El objeto Cliente completo
   mesa: Mesa;     // El objeto Mesa completo
 }

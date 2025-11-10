@@ -4,7 +4,7 @@ import { useState, useEffect, type FormEvent } from 'react';
 import axios from 'axios';
 import { type Cliente } from '../interfaces/models';
 // 1. Importa los iconos
-import { FaPen, FaTrash, FaSave, FaUndo, FaUsers } from 'react-icons/fa';
+import { FaPen, FaTrash, FaSave, FaUndo, FaUsers, FaStar } from 'react-icons/fa';
 
 const API_URL = 'http://localhost:3000';
 
@@ -120,6 +120,7 @@ export default function GestionClientes() {
             <th>Nombre</th>
             <th>Email</th>
             <th>Teléfono</th>
+            <th><FaStar /> Puntos</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -130,6 +131,7 @@ export default function GestionClientes() {
               <td>{cliente.nombre}</td>
               <td>{cliente.email}</td>
               <td>{cliente.telefono}</td>
+              <td>{cliente.puntos}</td>
               <td>
                 <button onClick={() => handleEditClick(cliente)} className="btn-edit">
                   <FaPen /> Editar

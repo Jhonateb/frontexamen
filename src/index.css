@@ -1,4 +1,4 @@
-/* src/index.css (Versión Alegre) */
+/* src/index.css (Versión Híbrida) */
 
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -8,9 +8,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* !! NUEVO: Fondo gris claro y limpio !! */
-  background-color: #f4f7fa; /* Gris muy claro, casi blanco */
-  color: #333; /* Texto oscuro principal */
+  /* !! NUEVO: Fondo oscuro principal !! */
+  background-color: #1f2937; /* Un gris-azul muy oscuro */
+  color: #e5e7eb; /* Texto claro por defecto */
 }
 
 body {
@@ -22,5 +22,6 @@ body {
 
 h1,
 h2 {
-  color: #2c3e50; /* Un azul/gris oscuro para los títulos */
+  /* Los títulos fuera de las tarjetas serán claros */
+  color: #ffffff;
 }
